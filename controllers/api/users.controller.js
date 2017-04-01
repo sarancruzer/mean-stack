@@ -6,8 +6,8 @@ var userService = require('services/user.service');
 // routes
 router.post('/authenticate', authenticateUser);
 router.post('/register', registerUser);
-router.get('/current', getCurrentUser);
-router.put('/:_id', updateUser);
+router.post('/current', getCurrentUser);
+router.post('/:_id', updateUser);
 router.delete('/:_id', deleteUser);
 
 module.exports = router;
@@ -54,6 +54,8 @@ function getCurrentUser(req, res) {
 
 function updateUser(req, res) {
     var userId = req.user.sub;
+    console.log(req.user);
+    console.log(req.params._id);
     if (req.params._id !== userId) {
         // can only update own account
         return res.status(401).send('You can only update your own account');
