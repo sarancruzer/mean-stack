@@ -23,8 +23,9 @@
 
 
         $scope.saveUser = function(){
-            //var id = $scope.user._id;
-            var _id = "58df46403a12152327bf5d63";
+            var _id = $scope.user._id;
+            console.log("_id "+$scope.user._id);
+            //var _id = "58df46403a12152327bf5d63";
             console.log("init called "+_id);
             var request = {
                 method:"POST",
@@ -34,8 +35,9 @@
             };
             $http(request).then(function successCallback(response) {
                 console.log(response);
-                console.log(response.data.firstName);
+                console.log(response.data);
                 //$scope.user = response.data;
+                $scope.ASuccess = response.data;
             }, function errorCallback(response) {
                 console.log(response);
                 
@@ -43,66 +45,11 @@
 
         }
 
-        function Update(user) {
-            return $http.put('/api/users/' + user._id, user).then(handleSuccess, handleError);
+        $scope.deleteUser = function(){
+
+
+
         }
-
-
-
-        // $scope.saveUser1 = function(){
-            
-        //     var _id = "58df46403a12152327bf5d63";
-        //     var request = {
-        //         method:"POST",
-        //         url : '/api/users/current',
-        //         data:{user:$scope.user},
-        //         headers : {'Content-Type' : 'application/json'},
-        //     };
-        //     $http(request).then(function successCallback(response) {
-        //         console.log(response);
-                
-        //     }, function errorCallback(response) {
-        //         console.log(response);
-                
-        //     });
-        // };
-
-
-        //  $scope.saveUser = function(){
-        //     console.log("saveUser called "+$scope.user);
-        //     // get current user
-        //    UserService.Update($scope.user)
-        //     .then(function () {
-        //         console.log("saveUser called");
-        //         FlashService.Success('User updated');
-        //     })
-        //     .catch(function (error) {
-        //         FlashService.Error(error);
-        //     });
-        // }
-        // $scope.saveUser();
-
-
-
-        // $scope.saveUser1 = function(){
-            
-        //     var _id = "58df46403a12152327bf5d63";
-        //     var request = {
-        //         method:"POST",
-        //         url : '/api/users/' + _id,
-        //         data:{user:$scope.user},
-        //         headers : {'Content-Type' : 'application/json'},
-        //     };
-        //     $http(request).then(function successCallback(response) {
-        //         console.log(response);
-                
-        //     }, function errorCallback(response) {
-        //         console.log(response);
-                
-        //     });
-        // };
-
-        //   $scope.saveUser1();
 
 
         // $scope.deleteUser = function(){

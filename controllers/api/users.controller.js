@@ -63,7 +63,8 @@ function updateUser(req, res) {
 
     userService.update(userId, req.body)
         .then(function () {
-            res.sendStatus(200);
+            //res.sendStatus(200).send("successful");
+            return res.status(200).send('Successfully updated');
         })
         .catch(function (err) {
             res.status(400).send(err);

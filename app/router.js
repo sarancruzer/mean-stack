@@ -15,6 +15,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 templateUrl: 'account/account.html',
                 controller: 'AccountController as account',
                 data: { activeTab: 'account' }
+            })
+            .state('userList', {
+                url: '/userList',
+                templateUrl: 'users/_manageUser.html',
+                controller: 'ManageuserController as manageUser',
+                data: { activeTab: 'userList' }
+            }).state('editUser', {
+                url: '/editUser/:id',
+                templateUrl: 'users/_editUser.html',
+                controller: 'EdituserController as editUser',
+                data: { activeTab: 'userList' }
             });
 
 

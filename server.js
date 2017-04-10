@@ -6,8 +6,16 @@ var bodyParser = require('body-parser');
 var expressJwt = require('express-jwt');
 var config = require('config.json');
 
+// app.set('view engine', 'ejs');
+// app.set('views', __dirname + '/views');
+
+
+app.set('views', __dirname + '/app/home');
+app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
-app.set('views', __dirname + '/views');
+
+
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(session({ secret: config.secret, resave: false, saveUninitialized: true }));
@@ -20,6 +28,7 @@ app.use('/login', require('./controllers/login.controller'));
 app.use('/register', require('./controllers/register.controller'));
 app.use('/app', require('./controllers/app.controller'));
 app.use('/api/users', require('./controllers/api/users.controller'));
+app.use('/api/usersList', require('./controllers/api/usersController'));
 
 // make '/app' default route
 app.get('/', function (req, res) {

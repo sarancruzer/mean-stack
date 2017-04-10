@@ -5,6 +5,8 @@
     <title>MEAN Stack User Registration and Login Example Application</title>
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    
     <link href="app-content/app.css" rel="stylesheet" />
 </head>
 <body class="container">
@@ -13,6 +15,7 @@
         <ul class="nav nav-tabs">
             <li ng-class="{active: activeTab === 'home'}"><a ui-sref="home">Home</a></li>
             <li ng-class="{active: activeTab === 'account'}"><a ui-sref="account">Account</a></li>
+            <li ng-class="{active: activeTab === 'userList'}"><a ui-sref="userList">Users</a></li>
             <li><a href="/login" target="_self">Logout</a></li>
         </ul>
         <div class="flash-message" ng-if="flash">
@@ -38,5 +41,7 @@
     <script src="app-services/flash.service.js"></script>
     <script src="home/homeController.js"></script>
     <script src="account/accountController.js"></script>
+    <script src="users/manageUserController.js"></script>
+    <script src="users/editUserController.js"></script>
 </body>
 </html>
